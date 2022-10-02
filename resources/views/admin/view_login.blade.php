@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{asset('/')}}dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="carousel.css" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -60,6 +61,18 @@
           <div class="invalid-feedback">
             {{$message}}
           </div>
+          @enderror
+        </div>
+        <div class="input-group mb-3">
+          <label class="button-font">{{__('Captcha')}}</label>
+            <?=captcha_img('flat');?>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control  @error('captcha')
+          is-invalid
+          @enderror" name="captcha">
+          @error('captcha')
+          <div class="invalid-feedback">{{$message}}</div>
           @enderror
         </div>
         <div class="row">
